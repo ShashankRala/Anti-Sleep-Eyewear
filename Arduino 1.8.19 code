@@ -1,0 +1,27 @@
+int ir_sensor = A1;
+int buzzer = 3;
+void setup()
+{
+  pinMode (ir_sensor, INPUT);
+  pinMode (buzzer, OUTPUT);
+  Serial.begin(960);
+}
+
+void loop()
+{
+  int objek = digitalRead(ir_sensor);
+  if(objek==1)
+  {
+    delay(4500);
+    digitalWrite(buzzer,HIGH);
+    delay(50);
+    digitalWrite(buzzer,HIGH);
+    delay(50);
+    Serial.println("buzzer on");
+  }
+  else
+  {
+    digitalWrite(buzzer,LOW);
+    Serial.println("buzzer off");
+  }
+}
